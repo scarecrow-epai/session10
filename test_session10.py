@@ -16,7 +16,7 @@ README_CONTENT_CHECK_FOR = [
     "create_company",
 ]
 
-num_reps = 100
+num_reps = 10_000
 
 
 def test_readme_exists():
