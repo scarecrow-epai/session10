@@ -9,7 +9,6 @@ This file contains information for functions present in `session10.py` and `test
 pytest -v
 ```
 
-
 ## Functions in `session10.py`.
 
 
