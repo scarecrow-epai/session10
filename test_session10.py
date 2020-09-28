@@ -93,7 +93,7 @@ def test_mode_bloodgroup():
     """
     Test for the finding the most frequent blood group using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_00)
+    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
     num_runs = 100
 
     perf_tuples = dict()
@@ -113,7 +113,7 @@ def test_max_age():
     """
     Test for finding max age using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_00)
+    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
     num_runs = 100
 
     perf_tuples = dict()
@@ -128,7 +128,7 @@ def test_mean_location():
     """
     Test for finding the mean location using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_00)
+    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
     num_runs = 100
 
     perf_tuples = dict()
@@ -147,7 +147,7 @@ def test_avg_age():
     """
     Test for finding the average age using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_00)
+    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
     num_runs = 100
 
     perf_tuples = dict()
