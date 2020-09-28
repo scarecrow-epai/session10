@@ -108,7 +108,7 @@ def test_mode_bloodgroup():
     session10.timed(session10.get_mode_bloodgroup, num_runs, perf_dict)(
         test_prof_dict, "dict"
     )
-    assert perf_tuples["get_mode_bloodgroup"] > perf_dict["get_mode_bloodgroup"]
+    assert perf_tuples["get_mode_bloodgroup"] < perf_dict["get_mode_bloodgroup"]
 
 
 def test_max_age():
@@ -123,7 +123,7 @@ def test_max_age():
 
     session10.timed(session10.get_max_age, num_runs, perf_tuples)(test_prof_tuple, "nt")
     session10.timed(session10.get_max_age, num_runs, perf_dict)(test_prof_dict, "dict")
-    assert perf_tuples["get_max_age"] > perf_dict["get_max_age"]
+    assert perf_tuples["get_max_age"] < perf_dict["get_max_age"]
 
 
 def test_mean_location():
@@ -142,7 +142,7 @@ def test_mean_location():
     session10.timed(session10.get_mean_location, num_runs, perf_dict)(
         test_prof_dict, "dict"
     )
-    assert perf_tuples["get_mean_location"] > perf_dict["get_mean_location"]
+    assert perf_tuples["get_mean_location"] < perf_dict["get_mean_location"]
 
 
 def test_avg_age():
@@ -157,7 +157,7 @@ def test_avg_age():
 
     session10.timed(session10.get_avg_age, num_runs, perf_tuples)(test_prof_tuple, "nt")
     session10.timed(session10.get_avg_age, num_runs, perf_dict)(test_prof_dict, "dict")
-    assert perf_tuples["get_avg_age"] > perf_dict["get_avg_age"]
+    assert perf_tuples["get_avg_age"] < perf_dict["get_avg_age"]
 
 
 def test_company_stock():
