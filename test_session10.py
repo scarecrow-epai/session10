@@ -16,6 +16,8 @@ README_CONTENT_CHECK_FOR = [
     "create_company",
 ]
 
+num_reps = 100
+
 
 def test_readme_exists():
     """                                                                                                                                                                      
@@ -93,7 +95,7 @@ def test_mode_bloodgroup():
     """
     Test for the finding the most frequent blood group using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
+    test_prof_tuple, test_prof_dict = session10.create_prof(num_reps)
     num_runs = 100
 
     perf_tuples = dict()
@@ -113,7 +115,7 @@ def test_max_age():
     """
     Test for finding max age using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
+    test_prof_tuple, test_prof_dict = session10.create_prof(num_reps)
     num_runs = 100
 
     perf_tuples = dict()
@@ -128,7 +130,7 @@ def test_mean_location():
     """
     Test for finding the mean location using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
+    test_prof_tuple, test_prof_dict = session10.create_prof(num_reps)
     num_runs = 100
 
     perf_tuples = dict()
@@ -147,7 +149,7 @@ def test_avg_age():
     """
     Test for finding the average age using tuple and dict.
     """
-    test_prof_tuple, test_prof_dict = session10.create_prof(10_000)
+    test_prof_tuple, test_prof_dict = session10.create_prof(num_reps)
     num_runs = 100
 
     perf_tuples = dict()

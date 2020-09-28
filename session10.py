@@ -56,40 +56,43 @@ def create_prof(n: int) -> "namedtuple and dict":
         rand_profiles_tuple.append(prof_tuple)
         rand_profiles_dict.append(prof_dict)
 
+    rand_profiles_dict = {i: obj for i, obj in enumerate(rand_profiles_dict)}
+
     return rand_profiles_tuple, rand_profiles_dict
 
 
-def get_mode_bloodgroup(obj_list: list, obj_type: str) -> "bloodgroup":
+def get_mode_bloodgroup(obj_col: list, obj_type: str) -> "bloodgroup":
     """
     Get the bloodgroup with highest frequency from a given
     namedtuple or dict.
     """
 
     if obj_type == "nt":
-        val_count = {obj.blood_group: 0 for obj in obj_list}
-        for obj in obj_list:
+        val_count = {obj.blood_group: 0 for obj in obj_col}
+        for obj in obj_col:
             val = obj.blood_group
             val_count[val] += 1
     else:
-        val_count = {obj["blood_group"]: 0 for obj in obj_list}
-        for obj in obj_list:
+        val_count = {obj["blood_group"]: 0 for obj in obj_col.values()}
+        for obj in obj_col.values():
             val = obj["blood_group"]
             val_count[val] += 1
 
     return max(val_count)
 
 
-def get_mean_location(obj_list: list, obj_type: str) -> "Decimal Coordinates":
+def get_mean_location(obj_col: list, obj_type: str) -> "Decimal Coordinates":
     """
     Get mean x,y of all given coordinates.
     """
     val_count = {"x": 0, "y": 0}
 
-    for obj in obj_list:
-        if obj_type == "nt":
+    if obj_type == "nt":
+        for obj in obj_col:
             val_count["x"] += obj.current_location[0]
             val_count["y"] += obj.current_location[1]
-        else:
+    else:
+        for obj in obj_col.values():
             val_count["x"] += obj["current_location"][0]
             val_count["y"] += obj["current_location"][1]
 
@@ -99,41 +102,41 @@ def get_mean_location(obj_list: list, obj_type: str) -> "Decimal Coordinates":
     return avg_x, avg_y
 
 
-def get_max_age(obj_list: list, obj_type: str) -> "Max age":
+def get_max_age(obj_col: list, obj_type: str) -> "Max age":
     """
     Function to obtain the max age given a namedtuple or dict.
     """
     if obj_type == "nt":
-        val_count = {
-            (datetime.date.today() - obj.birthdate).days: 0 for obj in obj_list
-        }
-        for obj in obj_list:
+        val_count = {(datetime.date.today() - obj.birthdate).days: 0 for obj in obj_col}
+        for obj in obj_col:
             val = (datetime.date.today() - obj.birthdate).days
             val_count[val] += 1
     else:
         val_count = {
-            (datetime.date.today() - obj["birthdate"]).days: 0 for obj in obj_list
+            (datetime.date.today() - obj["birthdate"]).days: 0
+            for obj in obj_col.values()
         }
-        for obj in obj_list:
+        for obj in obj_col.values():
             val = (datetime.date.today() - obj["birthdate"]).days
             val_count[val] += 1
 
     return max(val_count)
 
 
-def get_avg_age(obj_list: list, obj_type: str) -> "Average age":
+def get_avg_age(obj_col, obj_type: str) -> "Average age":
     """
     Function to obtain the average age given a namedtuple or dict.
     """
     val_count = []
 
-    for obj in obj_list:
-        if obj_type == "nt":
+    if obj_type == "nt":
+        for obj in obj_col:
             val = (datetime.date.today() - obj.birthdate).days
-        else:
+            val_count.append(val)
+    else:
+        for obj in obj_col.values():
             val = (datetime.date.today() - obj["birthdate"]).days
-
-        val_count.append(val)
+            val_count.append(val)
 
     return sum(val_count) / len(val_count)
 
